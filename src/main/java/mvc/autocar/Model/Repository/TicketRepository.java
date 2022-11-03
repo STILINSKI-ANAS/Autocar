@@ -18,7 +18,7 @@ public class TicketRepository {
         Connection connection = connectionClass.getConnection();
         PreparedStatement pst;
         try {
-            pst = connection.prepareStatement("select * from Ticket");
+            pst = connection.prepareStatement("select * from ticket");
             ResultSet resultSet = pst.executeQuery();
             while (resultSet.next()) {
                 list.add(new Ticket(resultSet.getInt(1),
