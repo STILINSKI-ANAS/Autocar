@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
+   <children>
+      <HBox layoutX="82.0" layoutY="382.0" prefHeight="450.0" prefWidth="1760.0" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="380.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="520.0">
+               <children>
+                  <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma gare de départ">
+                     <font>
+                        <Font name="Tw Cen MT" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField prefHeight="80.0" prefWidth="90.0" style="-fx-text-fill: #4A20AA;">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma gare d'arrivé">
+                     <font>
+                        <Font name="Tw Cen MT" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField prefHeight="80.0" prefWidth="90.0" style="-fx-text-fill: #4A20AA;">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" top="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Tw Cen MT Bold" size="36.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="520.0">
+               <children>
+                  <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma date de départ">
+                     <font>
+                        <Font name="Tw Cen MT" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <DatePicker fx:id="dateDepart" prefHeight="80.0" prefWidth="500.0" promptText="JJ/MM/AAAA" style="-fx-font-size: 27pt; -fx-text-fill: #4A20AA;">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </DatePicker>
+                  <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="L'heure de Départ">
+                     <font>
+                        <Font name="Tw Cen MT" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ComboBox fx:id="heureDepart" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="500.0" promptText="Choisir une periode" style="-fx-font-size: 27pt; -fx-text-fill: #4A20AA; -fx-font-family: Tw Cen MT Bold;">
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="520.0">
+               <children>
+                  <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de Vouageurs">
+                     <font>
+                        <Font name="Tw Cen MT" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnDecrement" accessibleRole="DECREMENT_BUTTON" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="-">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="1 P e r s o n n e s" textAlignment="CENTER">
+                           <font>
+                              <Font name="Tw Cen MT" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="40.0" right="40.0" top="30.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Button fx:id="btnIncrement" accessibleRole="INCREMENT_BUTTON" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="+">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="20.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Type de Confort">
+                     <font>
+                        <Font name="Tw Cen MT" size="32.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="BtnTypePermuim" mnemonicParsing="false" prefHeight="90.0" prefWidth="170.0" text="Premuim">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnTypeConfort" mnemonicParsing="false" prefHeight="103.0" prefWidth="170.0" text="Confort">
+                           <font>
+                              <Font name="Tw Cen MT" size="28.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnTypeConfortStandard" mnemonicParsing="false" prefHeight="81.0" prefWidth="165.0" text="Standard">
+                           <font>
+                              <Font name="Tw Cen MT" size="28.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="20.0" top="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="240.0">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <children>
+                  <Button fx:id="btnSearch" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="320.0" prefWidth="240.0">
+                     <VBox.margin>
+                        <Insets bottom="30.0" top="65.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="148.0" fitWidth="148.0">
+                           <image>
+                              <Image url="@../../../../../../Downloads/icons8-search-100%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Text layoutX="865.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Courtier" AnchorPane.leftAnchor="860.0" AnchorPane.rightAnchor="860.0" AnchorPane.topAnchor="125.0">
+         <font>
+            <Font name="Tw Cen MT Bold" size="72.0" />
+         </font>
+      </Text>
+      <Text layoutX="684.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GHIR BCLICK TICKET BIN IDIK">
+         <font>
+            <Font name="Tw Cen MT Italic" size="48.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

@@ -151,24 +151,6 @@
 }
 
 
-.combo-box
-{
-    -fx-background-color : #141124;
-    -fx-border-color:  #515658;
-    -fx-border-radius: 30;
-}
-.combo-box:hover
-{
-    -fx-background-color : #141124;
-    -fx-border-color:  #FFFF;
-    -fx-border-radius: 30;
-}
-.combo-box:pressed
-{
-    -fx-background-color : #141124;
-    -fx-border-color:  #FFFF;
-    -fx-border-radius: 30;
-}
 
 .table-view .column-header,
 .table-view .column-header-background .filler {
@@ -240,3 +222,16 @@
 {
     -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
 }
+
+/* Hakeem */
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("src/main/resources/assets/PoppinsFont/Poppins Regular 400.ttf");
+}
+
+.text {
+    -fx-font-family: "Poppins";
+}
+No
+
