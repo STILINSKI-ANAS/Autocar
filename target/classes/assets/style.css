@@ -1,0 +1,237 @@
+.root{
+}
+
+#recapsection{
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-radius :  16 16 0 0;
+}
+
+.text-field {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+.transparent{
+    -fx-background-color: transparent;
+}
+.scroll-pane{
+   -fx-background-color:transparent;
+}
+.text-field:focused {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.SubmitBtn{
+    -fx-background-color : #1BD084;
+    -fx-background-radius :  10;
+}
+.SubmitBtn:hover{
+    -fx-background-color : #1BD084;
+    -fx-background-radius :  10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.44), 15, 0, 0, 0);
+}
+.SubmitBtn:pressed{
+    -fx-background-color : #1BD084;
+    -fx-background-radius :  10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 0, 0);
+}
+
+.keyBtn{
+    -fx-background-color : #FFFFFF;
+    -fx-background-radius :  10;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}
+.keyBtn:hover{
+    -fx-background-color : #FFFFFF;
+    -fx-background-radius :  10;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.44), 15, 0, 0, 0);
+}
+.keyBtn:pressed{
+    -fx-background-color : #FFFFFF;
+    -fx-background-radius :  10;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 0, 0);
+}
+
+.NextprevBtn{
+    -fx-background-color : #1BD084;
+    -fx-background-radius :  100;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 35px;
+}
+.NextprevBtn:hover{
+    -fx-background-color : #1BD084;
+    -fx-background-radius :  100;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.44), 15, 0, 0, 0);
+}
+.NextprevBtn:pressed{
+    -fx-background-color : #1BD084;
+    -fx-background-radius :  100;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 0, 0);
+}
+
+.buttonEn
+{
+-fx-background-color : rgba(0,0,0,0.0);
+
+}
+.buttonEn:hover
+{
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.44), 15, 0, 0, 0);
+}
+.buttonEn:pressed
+{
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 0, 0);
+}
+
+.buttonAr
+{
+-fx-background-color : #1BD084;
+-fx-background-radius :  100;
+}
+.buttonAr:hover
+{
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.44), 15, 0, 0, 0);
+}
+.buttonAr:pressed
+{
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 15, 0, 0, 0);
+}
+
+
+.button2
+{
+-fx-background-color : #FDF9F9;
+-fx-background-radius :  100;
+}
+.button2:hover
+{
+-fx-background-color : #FDF9F9 ;
+-fx-background-radius :  100;
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.44), 15, 0, 0, 0);
+}
+.button2:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  100;
+}
+
+.button3
+{
+    -fx-background-color : #141124;
+    -fx-background-radius :  0 0 0 0;
+}
+.button3:hover
+{
+    -fx-background-color : #524A7B ;
+}
+.button3:pressed
+{
+    -fx-background-color : #2F2B43 ;
+}
+
+.button4
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:hover
+{
+    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+
+
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:   #2D75E8;
+}
+.table-view .column-header .label{
+
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+   -fx-cell-size: 30;
+  -fx-alignment: center-left;
+  -fx-text-fill: #000000;
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+ }
+ .table-row-cell:selected .text {
+        -fx-fill : white ;
+
+ }
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 2em;
+
+}
+
+/* The main scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color:derive(  #2D75E8,80%);
+	-fx-background-radius: 2em;
+	-fx-border-radius:2em;
+}
+
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #2D75E8,90%);
+	-fx-background-insets: 2, 0, 0;
+	-fx-background-radius: 2em;
+
+}
+
+/* chart properties */
+
+.chart {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+.chart-plot-background {
+    -fx-background-color:transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fx-pie-color, 1%);
+    -fx-border-width: 0px;
+}
+.linear-grad
+{
+    -fx-background-color: linear-gradient(to bottom left, #A868A0, #2D75E8);
+}
+
+/* Hakeem */
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("src/main/resources/assets/PoppinsFont/Poppins Regular 400.ttf");
+}
+
+.text {
+    -fx-font-family: "Poppins";
+}
+No
+
