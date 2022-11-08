@@ -28,14 +28,14 @@
                         <Insets left="20.0" top="20.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField prefHeight="80.0" prefWidth="90.0" style="-fx-text-fill: #4A20AA;">
+                  <AutoCompleteTextField fx:id="idGareDepart" prefHeight="80.0" prefWidth="90.0" style="-fx-text-fill: #4A20AA;">
                      <VBox.margin>
                         <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font size="36.0" />
                      </font>
-                  </TextField>
+                  </AutoCompleteTextField>
                   <Text fill="#4a20aa" strokeType="OUTSIDE" strokeWidth="0.0" text="Ma gare d'arrivé">
                      <font>
                         <Font name="Tw Cen MT" size="32.0" />
@@ -44,14 +44,14 @@
                         <Insets left="20.0" top="20.0" />
                      </VBox.margin>
                   </Text>
-                  <TextField prefHeight="80.0" prefWidth="90.0" style="-fx-text-fill: #4A20AA;">
+                  <AutoCompleteTextField fx:id="idGareArrive" prefHeight="80.0" prefWidth="90.0" style="-fx-text-fill: #4A20AA;">
                      <VBox.margin>
                         <Insets bottom="20.0" left="20.0" top="10.0" />
                      </VBox.margin>
                      <font>
                         <Font name="Tw Cen MT Bold" size="36.0" />
                      </font>
-                  </TextField>
+                  </AutoCompleteTextField>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="520.0">
