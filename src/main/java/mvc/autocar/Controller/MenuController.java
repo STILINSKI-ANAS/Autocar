@@ -21,7 +21,7 @@ public class MenuController implements Initializable {
     private URL location;
 
     @FXML
-    private Button BtnTypePermuim;
+    private Button btnTypePermuim;
 
     @FXML
     private Button btnDecrement;

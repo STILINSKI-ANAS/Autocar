@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,6 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import mvc.autocar.AutoCompleteTextField?>
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
    <children>
       <VBox prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #EF1837;">
@@ -45,7 +47,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <TextField prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <AutoCompleteTextField prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -62,7 +64,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <TextField prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <AutoCompleteTextField prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -100,7 +102,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <TextField prefHeight="80.0" prefWidth="500.0" promptText="Choisir une period" style="-fx-border-radius: 30;" stylesheets="@../assets/style1.css" />
+                                                <ComboBox fx:id="heureDepart" prefHeight="80.0" prefWidth="500.0" promptText="Choisir une period" style="-fx-border-radius: 30;" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -153,7 +155,7 @@
                                           </Label>
                                           <HBox alignment="CENTER" prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button2" stylesheets="@../assets/style1.css" text="Premuim" />
+                                                <Button fx:id="btnTypePermuim" mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button2" stylesheets="@../assets/style1.css" text="Premuim" />
                                                 <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button3" stylesheets="@../assets/style1.css" text="Standard" />
                                                 <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button4" stylesheets="@../assets/style1.css" text="Confort" />
                                              </children>

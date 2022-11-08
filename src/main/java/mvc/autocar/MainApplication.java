@@ -11,7 +11,7 @@ import java.io.IOException;
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/View/Menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/View/Menu1.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
         scene.getStylesheets().add(getClass().getResource("/assets/style.css").toExternalForm());
         stage.setTitle("Hello!");
