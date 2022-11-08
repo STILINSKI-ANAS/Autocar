@@ -3,13 +3,13 @@ package mvc.autocar.Controller;
 
         import java.net.URL;
         import java.util.ResourceBundle;
+
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
         import javafx.scene.control.Button;
         import javafx.scene.control.ComboBox;
         import javafx.scene.control.DatePicker;
-        import javafx.scene.input.MouseEvent;
-        import javafx.scene.text.Text;
+        import javafx.scene.control.Label;
 
 
 public class MenuController implements Initializable {
@@ -42,10 +42,35 @@ public class MenuController implements Initializable {
     private DatePicker dateDepart;
 
     @FXML
-    private Text nbrPersonnes;
+    private ComboBox<String> heureDepart ;
 
     @FXML
-    private ComboBox<String> heureDepart ;
+    private int nbrPersonne;
+
+    @FXML
+    private Label nbrPersonnes;
+
+    @FXML
+    public void increment() {
+
+        nbrPersonne+=1;
+        nbrPersonnes.setText(String.valueOf(nbrPersonne));
+
+    }
+
+    @FXML
+    public void decrement() {
+
+        if(nbrPersonne>1) {
+            nbrPersonne-=1;
+        } else if (nbrPersonne<=1) {
+            nbrPersonne =1;
+        }
+
+        nbrPersonnes.setText(String.valueOf(nbrPersonne));
+
+
+    }
 
 
 
@@ -54,6 +79,4 @@ public class MenuController implements Initializable {
             heureDepart.getItems().addAll("Matinee", "Nuit", "Apres Midi", "Soire");
 
 
-    }
-
-    }
+    }}
