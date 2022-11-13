@@ -13,7 +13,7 @@ import java.sql.SQLException;
 public class TicketRepository {
 
     public ObservableList<Ticket> load() {
-        ObservableList<Ticket> list = FXCollections.observableArrayList();
+        ObservableList<Ticket> ticket_list = FXCollections.observableArrayList();
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection = connectionClass.getConnection();
         PreparedStatement pst;
@@ -21,7 +21,7 @@ public class TicketRepository {
             pst = connection.prepareStatement("select * from ticket");
             ResultSet resultSet = pst.executeQuery();
             while (resultSet.next()) {
-                list.add(new Ticket(resultSet.getInt(1),
+                ticket_list.add(new Ticket(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
                         resultSet.getDate(4),
@@ -31,10 +31,12 @@ public class TicketRepository {
                         resultSet.getTime(8),
                         resultSet.getInt(9),
                         resultSet.getInt(10)));
+
             }
+            connection.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return list;
+        return ticket_list;
     }
 }
