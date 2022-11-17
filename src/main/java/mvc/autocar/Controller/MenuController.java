@@ -10,10 +10,7 @@ package mvc.autocar.Controller;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
-        import javafx.scene.control.Button;
-        import javafx.scene.control.ComboBox;
-        import javafx.scene.control.DatePicker;
-        import javafx.scene.control.TextField;
+        import javafx.scene.control.*;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.text.Text;
 
@@ -48,7 +45,7 @@ public class MenuController implements Initializable {
     private DatePicker dateDepart;
 
     @FXML
-    private Text nbrPersonnes;
+    private Label nbrPersonnes;
 
     @FXML
     private ComboBox<String> heureDepart ;
@@ -68,10 +65,27 @@ public class MenuController implements Initializable {
 
 
 
+    int nbPersonne = 1;
+    //function that incrrement the number of personnes
+    public void increment(){
+        nbPersonne++;
+        nbrPersonnes.setText(String.valueOf(nbPersonne));
+    }
+
+    //function that decrement the number of personnes
+    public void decrement(){
+        if(!(nbPersonne == 1)){
+            nbPersonne--;
+            nbrPersonnes.setText(String.valueOf(nbPersonne));
+        }
+    }
+
+
+
     String typeDeComfort = "standard";
 
     // function to get the button clicked by the user
-    public  void typeDeComfort(ActionEvent event){
+    public void typeDeComfort(ActionEvent event){
         Button sourceButton = (Button) event.getSource();
         if(sourceButton.equals(btnTypePremuim)){
             typeDeComfort = btnTypePremuim.getText();
@@ -98,6 +112,7 @@ public class MenuController implements Initializable {
         String departGare = gareDepart.getText();
         String arriveGare = gareDarrive.getText();
 
+
         //show data in the console
         System.out.println("now: "+ LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM-dd-yyyy")));
 //      System.out.println(myFormattedDate);
@@ -105,6 +120,7 @@ public class MenuController implements Initializable {
         System.out.println(selected);
         System.out.println(departGare);
         System.out.println(arriveGare);
+        System.out.println(nbPersonne);
     }
 
 }

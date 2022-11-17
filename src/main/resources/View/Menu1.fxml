@@ -126,18 +126,18 @@
                                              <children>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>
-                                                      <Button maxHeight="80.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="-" />
+                                                      <Button maxHeight="80.0" maxWidth="80.0" mnemonicParsing="false" onAction="#decrement" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="-" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefWidth="340.0">
                                                    <children>
-                                                      <Label text="1" />
+                                                      <Label fx:id="nbrPersonnes" text="1" />
                                                       <Label text="Personne(s)" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT">
                                                    <children>
-                                                      <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="+" />
+                                                      <Button mnemonicParsing="false" onAction="#increment" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="+" />
                                                    </children>
                                                 </HBox>
                                              </children>
