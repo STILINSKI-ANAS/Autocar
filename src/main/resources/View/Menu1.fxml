@@ -13,7 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import mvc.autocar.AutoCompleteTextField?>
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
    <children>
       <VBox prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #EF1837;">
          <children>
@@ -47,7 +48,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <AutoCompleteTextField prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <AutoCompleteTextField fx:id="gareDepart" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -64,7 +65,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <AutoCompleteTextField prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <AutoCompleteTextField fx:id="gareDarrive" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -155,9 +156,9 @@
                                           </Label>
                                           <HBox alignment="CENTER" prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <Button fx:id="btnTypePermuim" mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button2" stylesheets="@../assets/style1.css" text="Premuim" />
-                                                <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button3" stylesheets="@../assets/style1.css" text="Standard" />
-                                                <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="166.0" styleClass="button4" stylesheets="@../assets/style1.css" text="Confort" />
+                                                <Button fx:id="btnTypePremuim" mnemonicParsing="false" onAction="#typeDeComfort" prefHeight="80.0" prefWidth="166.0" styleClass="button2" stylesheets="@../assets/style1.css" text="Premuim" />
+                                                <Button fx:id="btnTypeStandard" mnemonicParsing="false" onAction="#typeDeComfort" prefHeight="80.0" prefWidth="166.0" styleClass="button3" stylesheets="@../assets/style1.css" text="Standard" />
+                                                <Button fx:id="btnTypeConfort" mnemonicParsing="false" onAction="#typeDeComfort" prefHeight="80.0" prefWidth="166.0" styleClass="button4" stylesheets="@../assets/style1.css" text="Confort" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -172,7 +173,7 @@
                               <Insets right="40.0" />
                            </HBox.margin>
                         </HBox>
-                        <Button mnemonicParsing="false" prefHeight="200.0" prefWidth="200.0" styleClass="btnSearch" stylesheets="@../assets/style1.css" />
+                        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#search" prefHeight="200.0" prefWidth="200.0" styleClass="btnSearch" stylesheets="@../assets/style1.css" />
                      </children>
                      <HBox.margin>
                         <Insets top="85.0" />
