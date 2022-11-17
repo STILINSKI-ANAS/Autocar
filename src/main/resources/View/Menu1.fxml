@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<!--<?import mvc.autocar.AutoCompleteTextField?>-->
+<?import mvc.autocar.AutoCompleteTextField?>
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
    <children>
@@ -48,7 +48,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <TextField fx:id="gareDepart" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <AutoCompleteTextField fx:id="gareDepart" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -65,7 +65,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <TextField fx:id="gareDarrive" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <AutoCompleteTextField fx:id="gareDarrive" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
