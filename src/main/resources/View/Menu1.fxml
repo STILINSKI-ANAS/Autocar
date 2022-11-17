@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import mvc.autocar.AutoCompleteTextField?>
+<!--<?import mvc.autocar.AutoCompleteTextField?>-->
 
 <AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
    <children>
@@ -48,7 +48,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <AutoCompleteTextField fx:id="gareDepart" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <TextField fx:id="gareDepart" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare de départ" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -65,7 +65,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <AutoCompleteTextField fx:id="gareDarrive" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
+                                                <TextField fx:id="gareDarrive" prefHeight="80.0" prefWidth="500.0" promptText="Ma gare d’arrivée" style="-fx-border-radius: 30;" styleClass="text-field" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
@@ -126,18 +126,18 @@
                                              <children>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>
-                                                      <Button maxHeight="80.0" maxWidth="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="-" />
+                                                      <Button maxHeight="80.0" maxWidth="80.0" mnemonicParsing="false" onAction="#decrement" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="-" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefWidth="340.0">
                                                    <children>
-                                                      <Label text="1" />
+                                                      <Label fx:id="nbrPersonnes" text="1" />
                                                       <Label text="Personne(s)" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT">
                                                    <children>
-                                                      <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="+" />
+                                                      <Button mnemonicParsing="false" onAction="#increment" prefHeight="80.0" prefWidth="80.0" styleClass="button1" stylesheets="@../assets/style1.css" text="+" />
                                                    </children>
                                                 </HBox>
                                              </children>
