@@ -146,17 +146,17 @@
                   </Text>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="BtnTypePermuim" mnemonicParsing="false" prefHeight="90.0" prefWidth="170.0" text="Premuim">
+                        <Button fx:id="btnTypePermuim" mnemonicParsing="false" onAction="#typeDeComfort" prefHeight="90.0" prefWidth="170.0" text="Premuim">
                            <font>
                               <Font size="28.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnTypeConfort" mnemonicParsing="false" prefHeight="103.0" prefWidth="170.0" text="Confort">
+                        <Button fx:id="btnTypeConfort" mnemonicParsing="false" onAction="#typeDeComfort" prefHeight="103.0" prefWidth="170.0" text="Confort">
                            <font>
                               <Font name="Tw Cen MT" size="28.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnTypeConfortStandard" mnemonicParsing="false" prefHeight="81.0" prefWidth="165.0" text="Standard">
+                        <Button fx:id="btnTypeStandard" mnemonicParsing="false" onAction="#typeDeComfort" prefHeight="81.0" prefWidth="165.0" text="Standard">
                            <font>
                               <Font name="Tw Cen MT" size="28.0" />
                            </font>
@@ -176,7 +176,7 @@
                   <Insets left="20.0" />
                </HBox.margin>
                <children>
-                  <Button fx:id="btnSearch" graphicTextGap="0.0" mnemonicParsing="false" prefHeight="320.0" prefWidth="240.0">
+                  <Button fx:id="btnSearch" graphicTextGap="0.0" mnemonicParsing="false" onAction="#search" prefHeight="320.0" prefWidth="240.0">
                      <VBox.margin>
                         <Insets bottom="30.0" top="65.0" />
                      </VBox.margin>
