@@ -12,6 +12,11 @@
     -fx-font-family: Poppins;
     -fx-font-style: regular;
 }
+
+.date-picker .arrow-button {
+  -fx-background-color: -fx-primary-color;
+  -fx-background-radius: 0;
+}
 .combo-box{
     -fx-background-color: #a9a9a9 , white , white;
     -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
@@ -40,7 +45,7 @@
 }
 
 .H-box{
-        -fx-background-radius :  30;
+    -fx-background-radius :  30;
 }
 .H-box1{
     -fx-background-color : white;
