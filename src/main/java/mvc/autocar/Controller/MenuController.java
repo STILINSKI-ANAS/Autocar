@@ -7,6 +7,8 @@ package mvc.autocar.Controller;
         import java.time.format.DateTimeFormatter;
         import java.util.ResourceBundle;
 
+        import javafx.beans.value.ChangeListener;
+        import javafx.beans.value.ObservableValue;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
         import javafx.fxml.Initializable;
@@ -65,6 +67,8 @@ public class MenuController implements Initializable {
 
 
 
+
+
     int nbPersonne = 1;
     //function that incrrement the number of personnes
     public void increment(){
@@ -87,12 +91,32 @@ public class MenuController implements Initializable {
     // function to get the button clicked by the user
     public void typeDeComfort(ActionEvent event){
         Button sourceButton = (Button) event.getSource();
+
         if(sourceButton.equals(btnTypePremuim)){
             typeDeComfort = btnTypePremuim.getText();
+            btnTypePremuim.getStyleClass().removeAll("button2","button2clicked");
+            btnTypeStandard.getStyleClass().removeAll("button3clicked");
+            btnTypeConfort.getStyleClass().removeAll("button4clicked");
+            btnTypePremuim.getStyleClass().add("button2clicked");
+            btnTypeStandard.getStyleClass().add("button3");
+            btnTypeConfort.getStyleClass().add("button4");
+
         }else if(sourceButton.equals(btnTypeStandard)){
             typeDeComfort = btnTypeStandard.getText();
+            btnTypePremuim.getStyleClass().removeAll("button2clicked");
+            btnTypeStandard.getStyleClass().removeAll("button3");
+            btnTypeConfort.getStyleClass().removeAll("button4clicked");
+            btnTypeStandard.getStyleClass().add("button3clicked");
+            btnTypePremuim.getStyleClass().add("button2");
+            btnTypeConfort.getStyleClass().add("button4");
         }else if(sourceButton.equals(btnTypeConfort)){
             typeDeComfort = btnTypeConfort.getText();
+            btnTypePremuim.getStyleClass().removeAll("button2clicked");
+            btnTypeStandard.getStyleClass().removeAll("button3clicked");
+            btnTypeConfort.getStyleClass().removeAll("button4");
+            btnTypeConfort.getStyleClass().add("button4clicked");
+            btnTypePremuim.getStyleClass().add("button2");
+            btnTypeStandard.getStyleClass().add("button3");
         }
     }
 
@@ -102,7 +126,10 @@ public class MenuController implements Initializable {
 
         //get selected L'heure de depart
         String selected = heureDepart.getSelectionModel().getSelectedItem();
-
+        //get selected date de depart
+        LocalDate date;
+        date = dateDepart.getValue();
+        String myFormattedDate = date.format(DateTimeFormatter.ofPattern("MMM-dd-yyyy"));
         // get selected date
 //        LocalDate myDate = dateDepart.getValue();
 //        String myFormattedDate = myDate.format(DateTimeFormatter.ofPattern("MMM-dd-yyyy"));
@@ -114,8 +141,7 @@ public class MenuController implements Initializable {
 
 
         //show data in the console
-        System.out.println("now: "+ LocalDateTime.now().format(DateTimeFormatter.ofPattern("MMM-dd-yyyy")));
-//      System.out.println(myFormattedDate);
+        System.out.println(myFormattedDate);
         System.out.println(typeDeComfort);
         System.out.println(selected);
         System.out.println(departGare);
@@ -123,4 +149,14 @@ public class MenuController implements Initializable {
         System.out.println(nbPersonne);
     }
 
+    private String getFormattedDateFromDatePicker(DatePicker datePicker) {
+        //Get the selected date
+        LocalDate selectedDate = datePicker.getValue();
+        //Create DateTimeFormatter
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        //Convert LocalDate to formatted String
+        return selectedDate.format(formatter);
+    }
 }
+
+
