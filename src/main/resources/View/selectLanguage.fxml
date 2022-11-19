@@ -24,7 +24,7 @@
          <children>
             <VBox maxHeight="330.0" maxWidth="250.0" minWidth="250.0" prefHeight="324.0" prefWidth="250.0">
                <children>
-                  <Button minHeight="324.0" minWidth="250.0" mnemonicParsing="false" styleClass="buttonEn" stylesheets="@../assets/style.css">
+                  <Button minHeight="324.0" minWidth="250.0" mnemonicParsing="false" styleClass="buttonEn" stylesheets="@../assets/style1.css">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -43,7 +43,7 @@
             </VBox>
             <VBox maxHeight="330.0" maxWidth="250.0" minWidth="250.0" prefHeight="324.0" prefWidth="250.0">
                <children>
-                  <Button minHeight="324.0" minWidth="250.0" mnemonicParsing="false" styleClass="buttonEn" stylesheets="@../assets/style.css">
+                  <Button minHeight="324.0" minWidth="250.0" mnemonicParsing="false" styleClass="buttonEn" stylesheets="@../assets/style1.css">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -62,7 +62,7 @@
             </VBox>
             <VBox maxHeight="330.0" maxWidth="250.0" minWidth="250.0" prefHeight="324.0" prefWidth="250.0">
                <children>
-                  <Button minHeight="324.0" minWidth="250.0" mnemonicParsing="false" styleClass="buttonEn" stylesheets="@../assets/style.css">
+                  <Button minHeight="324.0" minWidth="250.0" mnemonicParsing="false" styleClass="buttonEn" stylesheets="@../assets/style1.css">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
