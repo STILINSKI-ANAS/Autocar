@@ -87,7 +87,7 @@
                                           </Label>
                                           <Pane prefHeight="80.0" prefWidth="500.0">
                                              <children>
-                                                <DatePicker fx:id="dateDepart" prefHeight="80.0" prefWidth="500.0" promptText="JJ/MM/YYYY" styleClass="date-picker" stylesheets="@../assets/style1.css" />
+                                                <DatePicker fx:id="dateDepart" prefHeight="80.0" prefWidth="500.0" promptText="DD/MM/YYYY" styleClass="date-picker" stylesheets="@../assets/style1.css" />
                                              </children>
                                           </Pane>
                                        </children>
