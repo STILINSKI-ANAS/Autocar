@@ -1,6 +1,7 @@
 
 package mvc.autocar.Controller;
 
+        import java.io.IOException;
         import java.net.URL;
         import java.time.LocalDate;
         import java.time.LocalDateTime;
@@ -11,10 +12,15 @@ package mvc.autocar.Controller;
         import javafx.beans.value.ObservableValue;
         import javafx.event.ActionEvent;
         import javafx.fxml.FXML;
+        import javafx.fxml.FXMLLoader;
         import javafx.fxml.Initializable;
+        import javafx.scene.Node;
+        import javafx.scene.Parent;
+        import javafx.scene.Scene;
         import javafx.scene.control.*;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.text.Text;
+        import javafx.stage.Stage;
 
 
 public class MenuController implements Initializable {
@@ -57,6 +63,9 @@ public class MenuController implements Initializable {
 
     @FXML
     private TextField gareDepart;
+
+    private Stage stage;
+    private Scene scene;
 
 
 
@@ -122,7 +131,7 @@ public class MenuController implements Initializable {
 
 
     // function to get the information of ticket and search for suitable trips in the db
-    public void search(ActionEvent event){
+    public void search(ActionEvent event) throws IOException{
 
         //get selected L'heure de depart
         String selected = heureDepart.getSelectionModel().getSelectedItem();
@@ -139,23 +148,17 @@ public class MenuController implements Initializable {
         String departGare = gareDepart.getText();
         String arriveGare = gareDarrive.getText();
 
-
-        //show data in the console
-        System.out.println(myFormattedDate);
-        System.out.println(typeDeComfort);
-        System.out.println(selected);
-        System.out.println(departGare);
-        System.out.println(arriveGare);
-        System.out.println(nbPersonne);
+        //this function takes us to the next scene
+        switchToResults(event);
     }
-
-    private String getFormattedDateFromDatePicker(DatePicker datePicker) {
-        //Get the selected date
-        LocalDate selectedDate = datePicker.getValue();
-        //Create DateTimeFormatter
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        //Convert LocalDate to formatted String
-        return selectedDate.format(formatter);
+    public void switchToResults(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/View/results.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("result");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setFullScreen(true);
+        stage.show();
     }
 }
 

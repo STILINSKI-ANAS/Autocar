@@ -1,6 +1,8 @@
 package mvc.autocar.Model;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -8,23 +10,39 @@ public class Ticket {
     private int idTicket;
     private String destination;
     private String depart;
-    private Date dateDepart;
+    private LocalDateTime dateDepart;
+    private LocalDateTime dateArrive;
     private int numeroDePlace;
     private double prix;
-    private String agence;
-    private Time duree;
+    private int idAgence;
+
+
     private int idAdmin;
     private int idPaiment;
+    private String imgSrc;
 
-    public Ticket(int idTicket, String destination, String depart, Date dateDepart, int numeroDePlace, double prix, String agence, Time duree, int idAdmin, int idPaiment) {
+    public Ticket(int idTicket, String destination, String depart, LocalDateTime dateDepart,LocalDateTime dateArrive, int numeroDePlace, double prix, int idAdmin, int idPaiment,int idAgence,String imgSrc) {
         this.idTicket = idTicket;
         this.destination = destination;
         this.depart = depart;
         this.dateDepart = dateDepart;
         this.numeroDePlace = numeroDePlace;
         this.prix = prix;
-        this.agence = agence;
-        this.duree = duree;
+        this.idAgence = idAgence;
+        this.dateArrive = dateArrive;
+        this.idAdmin = idAdmin;
+        this.idPaiment = idPaiment;
+        this.imgSrc= imgSrc;
+    }
+    public Ticket(int idTicket, String destination, String depart, LocalDateTime dateDepart,LocalDateTime dateArrive, int numeroDePlace, double prix, int idAdmin, int idPaiment,int idAgence) {
+        this.idTicket = idTicket;
+        this.destination = destination;
+        this.depart = depart;
+        this.dateDepart = dateDepart;
+        this.numeroDePlace = numeroDePlace;
+        this.prix = prix;
+        this.idAgence = idAgence;
+        this.dateArrive = dateArrive;
         this.idAdmin = idAdmin;
         this.idPaiment = idPaiment;
     }
@@ -53,13 +71,22 @@ public class Ticket {
         this.depart = depart;
     }
 
-    public Date getDateDepart() {
+    public LocalDateTime getDateDepart() {
         return dateDepart;
     }
 
-    public void setDateDepart(Date dateDepart) {
+    public void setDateDepart(LocalDateTime dateDepart) {
         this.dateDepart = dateDepart;
     }
+
+    public LocalDateTime getdateArrive() {
+        return dateArrive;
+    }
+
+    public void setdateArrive(LocalDateTime dateArrive) {
+        this.dateArrive = dateArrive;
+    }
+
 
     public int getNumeroDePlace() {
         return numeroDePlace;
@@ -77,21 +104,15 @@ public class Ticket {
         this.prix = prix;
     }
 
-    public String getAgence() {
-        return agence;
+    public int getidAgence() {
+        return idAgence;
     }
 
-    public void setAgence(String agence) {
-        this.agence = agence;
+    public void setAgence(int idAgence) {
+        this.idAgence = idAgence;
     }
 
-    public Time getDuree() {
-        return duree;
-    }
 
-    public void setDuree(Time duree) {
-        this.duree = duree;
-    }
 
     public int getIdAdmin() {
         return idAdmin;
@@ -107,5 +128,13 @@ public class Ticket {
 
     public void setIdPaiment(int idPaiment) {
         this.idPaiment = idPaiment;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
     }
 }

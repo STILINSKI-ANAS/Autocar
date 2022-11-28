@@ -95,7 +95,7 @@ public class AutoCompleteTextField extends TextField
             final String result = searchResult.get(i);
             Label entryLabel = new Label(result);
             entryLabel.setPrefWidth(400);
-            entryLabel.setPrefHeight(40);
+            entryLabel.setPrefHeight(50);
             CustomMenuItem item = new CustomMenuItem(entryLabel, true);
             item.setGraphic(entryLabel);
             item.setOnAction(new EventHandler<ActionEvent>()
