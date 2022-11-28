@@ -1,14 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="mvc.autocar.Controller.TicketController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="116.0" maxWidth="650.0" onMousePressed="#click" prefHeight="116.0" prefWidth="650.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.TicketController">
+   <children>
+      <VBox alignment="BOTTOM_CENTER" maxHeight="116.0" maxWidth="650.0" prefHeight="116.0" prefWidth="650.0" style="-fx-background-color: transparent;">
+         <children>
+            <HBox maxHeight="60.0" maxWidth="617.0" prefHeight="60.0" prefWidth="617.0">
+               <children>
+                  <HBox prefHeight="60.0" prefWidth="243.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="TimeDepartLabel" text="07:45">
+                                 <font>
+                                    <Font name="Poppins Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="VilleDepartLabel" text="AGADIR" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="200.0">
+                                 <children>
+                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/clock.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets right="2.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <Label fx:id="DureeLabel" text="4h 30" />
+                                 </children>
+                                 <padding>
+                                    <Insets left="13.0" />
+                                 </padding>
+                              </HBox>
+                              <ImageView fitHeight="8.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/Arrow.png" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="DateDepartLabel" text="Mon,14 Jun" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="TimeArriveLabel" text="10:00">
+                                 <font>
+                                    <Font name="Poppins Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="VilleArriveLabel" text="MARRAKESH">
+                                 <font>
+                                    <Font name="Poppins Regular" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="214.0">
+                     <children>
+                        <ImageView fitHeight="60.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/BusCtm.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="155.0">
+                     <children>
+                        <Label fx:id="PriceLabel" text="250.00 Dh" textFill="#1a94ff">
+                           <font>
+                              <Font name="Poppins Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <Line endX="100.0" startX="-400.0" stroke="#a8a8a8" strokeWidth="0.5" />
+            <HBox alignment="CENTER" maxHeight="40.0" maxWidth="617.0" prefHeight="40.0" prefWidth="617.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="30.0">
+                     <children>
+                        <ImageView fx:id="AgencieLogo" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/AgencieLogo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="367.0">
+                     <children>
+                        <Label fx:id="AgencieLabel" text="CTM - Economy">
+                           <font>
+                              <Font name="Poppins Regular" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="218.0">
+                     <children>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/verified.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

@@ -14,8 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import mvc.autocar.AutoCompleteTextField?>
-
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.MenuController">
    <children>
       <VBox prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #EF1837;">
          <children>
@@ -42,7 +41,7 @@
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="146.0" prefWidth="500.0">
                                        <children>
-                                          <Label stylesheets="@../assets/style1.css" text="Ma gare de départ">
+                                          <Label styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="Ma gare de départ">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
                                              </VBox.margin>
@@ -59,7 +58,7 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="146.0" prefWidth="500.0">
                                        <children>
-                                          <Label stylesheets="@../assets/style1.css" text="Ma gare d’arrivée">
+                                          <Label styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="Ma gare d’arrivée">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
                                              </VBox.margin>
@@ -80,7 +79,7 @@
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="146.0" prefWidth="500.0">
                                        <children>
-                                          <Label stylesheets="@../assets/style1.css" text="Date de départ">
+                                          <Label styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="Date de départ">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
                                              </VBox.margin>
@@ -97,7 +96,7 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="146.0" prefWidth="500.0">
                                        <children>
-                                          <Label stylesheets="@../assets/style1.css" text="L’heure de départ">
+                                          <Label styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="L’heure de départ">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
                                              </VBox.margin>
@@ -118,7 +117,7 @@
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="146.0" prefWidth="500.0">
                                        <children>
-                                          <Label text="Nombre de Vouyageurs">
+                                          <Label styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="Nombre de Vouyageurs">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
                                              </VBox.margin>
@@ -132,11 +131,11 @@
                                                 </HBox>
                                                 <HBox alignment="CENTER" prefWidth="340.0">
                                                    <children>
-                                                      <Label fx:id="nbrPersonnes" text="1">
+                                                      <Label fx:id="nbrPersonnes" styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="1">
                                                          <HBox.margin>
                                                             <Insets right="5.0" />
                                                          </HBox.margin></Label>
-                                                      <Label text="Personne(s)" />
+                                                      <Label styleClass="MenuLabel" stylesheets="@../assets/style1.css" text="Personne(s)" />
                                                    </children>
                                                 </HBox>
                                                 <HBox alignment="CENTER_RIGHT">
@@ -153,7 +152,7 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="146.0" prefWidth="500.0">
                                        <children>
-                                          <Label text="Type de Confort">
+                                          <Label styleClass="MenuLabel" text="Type de Confort">
                                              <VBox.margin>
                                                 <Insets bottom="20.0" />
                                              </VBox.margin>
@@ -177,7 +176,14 @@
                               <Insets right="40.0" />
                            </HBox.margin>
                         </HBox>
-                        <Button fx:id="btnSearch" mnemonicParsing="false" onAction="#search" prefHeight="200.0" prefWidth="200.0" styleClass="btnSearch" stylesheets="@../assets/style1.css" />
+                        <Button fx:id="btnSearch" maxHeight="200.0" maxWidth="200.0" minHeight="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#search" prefHeight="200.0" prefWidth="200.0" styleClass="btnSearch" stylesheets="@../assets/style1.css">
+                           <graphic>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/search-500.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
                      </children>
                      <HBox.margin>
                         <Insets top="85.0" />

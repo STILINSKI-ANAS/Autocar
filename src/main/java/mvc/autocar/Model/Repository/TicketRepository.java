@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 public class TicketRepository {
 
@@ -24,13 +26,14 @@ public class TicketRepository {
                 ticket_list.add(new Ticket(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),
-                        resultSet.getDate(4),
-                        resultSet.getInt(5),
-                        resultSet.getDouble(6),
-                        resultSet.getString(7),
-                        resultSet.getTime(8),
+                        resultSet.getTimestamp(4).toLocalDateTime(),
+                        resultSet.getTimestamp(5).toLocalDateTime(),
+                        resultSet.getInt(6),
+                        resultSet.getDouble(7),
                         resultSet.getInt(9),
-                        resultSet.getInt(10)));
+                        resultSet.getInt(10),
+                        resultSet.getInt(11)
+                        ));
 
             }
             connection.close();

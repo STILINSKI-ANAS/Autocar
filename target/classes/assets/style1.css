@@ -1,7 +1,10 @@
 .root{
 }
-.transparent{
-    -fx-background-color: rgba(0,0,0,0);
+.scroll-pane{
+   -fx-background-color:transparent;
+}
+.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane
+   -fx-background-color: transparent;
 }
 
 .text-field {
@@ -149,10 +152,16 @@
     -fx-text-fill: white;
 }
 
-.label{
+.MenuLabel{
     -fx-text-fill: rgba(74, 32, 170, 1);
     -fx-font-size: 32px;
     -fx-font-family: Poppins;
+}
+
+.PrixUnitaire{
+    -fx-text-fill: white;
+    -fx-font-family: Poppins;
+    -fx-font-size: 17px;
 }
 
 .H-box{
@@ -276,6 +285,28 @@
     -fx-border-color: #4A20AA ;
     -fx-border-width: 2px ;
     -fx-font-size: 28px;
+    -fx-font-family: Poppins;
+}
+
+.button5{
+    -fx-background-radius :  8;
+    -fx-background-color : #4A20AA;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: Poppins;
+}
+.button5:hover{
+    -fx-background-radius :  8;
+    -fx-background-color : #562cb8;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: Poppins;
+}
+.button5clicked{
+    -fx-background-radius :  8;
+    -fx-background-color : #401899;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
     -fx-font-family: Poppins;
     -fx-padding : 10 px;
 }
