@@ -12,8 +12,8 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("/View/Agencies.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
-        scene.getStylesheets().add(getClass().getResource("/assets/style1.css").toExternalForm());
+        Scene scene = new Scene(fxmlLoader.load(), 1440, 990);
+//        scene.getStylesheets().add(getClass().getResource("/assets/style1.css").toExternalForm());
         stage.setTitle("Hello!");
         stage.setMaximized(true);
         stage.setFullScreen(true);
