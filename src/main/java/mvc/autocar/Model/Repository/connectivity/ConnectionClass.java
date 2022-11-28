@@ -1,12 +1,10 @@
 package mvc.autocar.Model.Repository.connectivity;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import mvc.autocar.Model.Agencies;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
-import java.sql.*;
-
-public class ConnectionClass<connection> {
+public class ConnectionClass {
 public Connection connection;
     public Connection getConnection()
     {
@@ -25,22 +23,5 @@ public Connection connection;
             System.out.println("null");
         }
         return connection;
-    }
-
-    public  ObservableList<Agencies> getDataAgencies() {
-        Connection conn = getConnection();
-        ObservableList<Agencies> list = FXCollections.observableArrayList();
-
-        try{
-            PreparedStatement ps = conn.prepareStatement("select * from Agencies");
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(new Agencies(rs.getInt("idAgencie"), rs.getString("nom"),rs.getString("adresse"), rs.getString("status"), rs.getInt("tel"), rs.getInt("ticketDisponible"), rs.getInt("ticketDisponible") ));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return list;
-
     }
 }
