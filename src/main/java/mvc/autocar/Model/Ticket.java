@@ -14,9 +14,8 @@ public class Ticket {
     private LocalDateTime dateArrive;
     private int numeroDePlace;
     private double prix;
+    private String typeOfComfort;
     private int idAgence;
-
-
     private int idAdmin;
     private int idPaiment;
     private String imgSrc;
@@ -34,7 +33,7 @@ public class Ticket {
         this.idPaiment = idPaiment;
         this.imgSrc= imgSrc;
     }
-    public Ticket(int idTicket, String destination, String depart, LocalDateTime dateDepart,LocalDateTime dateArrive, int numeroDePlace, double prix, int idAdmin, int idPaiment,int idAgence) {
+    public Ticket(int idTicket, String destination, String depart, LocalDateTime dateDepart,LocalDateTime dateArrive, int numeroDePlace, double prix, String typeOfComfort, int idAdmin, int idPaiment,int idAgence) {
         this.idTicket = idTicket;
         this.destination = destination;
         this.depart = depart;
@@ -45,6 +44,7 @@ public class Ticket {
         this.dateArrive = dateArrive;
         this.idAdmin = idAdmin;
         this.idPaiment = idPaiment;
+        this.typeOfComfort = typeOfComfort;
     }
 
     public int getIdTicket() {
@@ -112,7 +112,21 @@ public class Ticket {
         this.idAgence = idAgence;
     }
 
+    public LocalDateTime getDateArrive() {
+        return dateArrive;
+    }
 
+    public void setDateArrive(LocalDateTime dateArrive) {
+        this.dateArrive = dateArrive;
+    }
+
+    public String getTypeOfComfort() {
+        return typeOfComfort;
+    }
+
+    public void setTypeOfComfort(String typeOfComfort) {
+        this.typeOfComfort = typeOfComfort;
+    }
 
     public int getIdAdmin() {
         return idAdmin;

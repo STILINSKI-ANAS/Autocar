@@ -13,10 +13,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import mvc.autocar.DTO.TicketSearchDTO;
 import mvc.autocar.MainApplication;
 import mvc.autocar.Model.Repository.TicketRepository;
 import mvc.autocar.Model.Ticket;
@@ -42,6 +44,9 @@ public class ResultsController implements Initializable {
     private Label FraisLabel;
 
     @FXML
+    private Label NombreTicketsLabel;
+
+    @FXML
     private Label PrixUnitaireLabel;
 
     @FXML
@@ -61,17 +66,39 @@ public class ResultsController implements Initializable {
     private MyListener myListener;
 
     private TicketRepository ticketRepository=new TicketRepository();
+    private TicketSearchDTO ticketSearchDTO=new TicketSearchDTO();
 
     private void setChosenTicket(Ticket ticket) {
         PrixUnitaireLabel.setText(ticket.getPrix() + "0 "+ MainApplication.CURRENCY);
         SubTotalLabel.setText( ticket.getPrix()+"0 "+MainApplication.CURRENCY);
         FraisLabel.setText(10+"0 "+MainApplication.CURRENCY );
-        TotalLabel.setText( (ticket.getPrix() + 10) +"0 "+ MainApplication.CURRENCY  );
+        NombreTicketsLabel.setText(ticketSearchDTO.getNombreDeVoyageurs() + "" );
+        TotalLabel.setText( ( (ticket.getPrix() * ticketSearchDTO.getNombreDeVoyageurs()) + 10 ) +"0 "+ MainApplication.CURRENCY  );
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Tickets.addAll(ticketRepository.load());
+
+    }
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
+    public void Back(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("/View/Menu1.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setTitle("Filter");
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setFullScreen(true);
+        stage.show();
+    }
+
+    public void initiliazeList(TicketSearchDTO ticketSearchDTO){
+        this.ticketSearchDTO= ticketSearchDTO;
+        var tickets=ticketRepository.getTickets(ticketSearchDTO);
+        Tickets.addAll(tickets);
         if (Tickets.size() > 0) {
             setChosenTicket(Tickets.get(0));
             myListener = new MyListener() {
@@ -112,19 +139,5 @@ public class ResultsController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    public void Back(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("/View/Menu1.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("Filter");
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setFullScreen(true);
-        stage.show();
     }
 }

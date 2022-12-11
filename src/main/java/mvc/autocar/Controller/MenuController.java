@@ -21,6 +21,7 @@ package mvc.autocar.Controller;
         import javafx.scene.input.MouseEvent;
         import javafx.scene.text.Text;
         import javafx.stage.Stage;
+        import mvc.autocar.DTO.TicketSearchDTO;
 
 
 public class MenuController implements Initializable {
@@ -50,7 +51,7 @@ public class MenuController implements Initializable {
     private Button btnTypeStandard;
 
     @FXML
-    private DatePicker dateDepart;
+    private DatePicker dateDepart=new DatePicker(LocalDate.now());
 
     @FXML
     private Label nbrPersonnes;
@@ -72,11 +73,8 @@ public class MenuController implements Initializable {
     @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
             heureDepart.getItems().addAll("Matinee", "Nuit", "Apres Midi", "Soire");
+            dateDepart.setValue(LocalDate.now());
     }
-
-
-
-
 
     int nbPersonne = 1;
     //function that incrrement the number of personnes
@@ -95,7 +93,7 @@ public class MenuController implements Initializable {
 
 
 
-    String typeDeComfort = "standard";
+    String typeDeComfort = "Standard";
 
     // function to get the button clicked by the user
     public void typeDeComfort(ActionEvent event){
@@ -132,27 +130,23 @@ public class MenuController implements Initializable {
 
     // function to get the information of ticket and search for suitable trips in the db
     public void search(ActionEvent event) throws IOException{
-
-        //get selected L'heure de depart
-        String selected = heureDepart.getSelectionModel().getSelectedItem();
-        //get selected date de depart
-        LocalDate date;
-        date = dateDepart.getValue();
-        String myFormattedDate = date.format(DateTimeFormatter.ofPattern("MMM-dd-yyyy"));
-        // get selected date
-//        LocalDate myDate = dateDepart.getValue();
-//        String myFormattedDate = myDate.format(DateTimeFormatter.ofPattern("MMM-dd-yyyy"));
-
-
-        //get depar and arrived gare
-        String departGare = gareDepart.getText();
-        String arriveGare = gareDarrive.getText();
-
+        TicketSearchDTO ticketSearchDTO=new TicketSearchDTO();
+        ticketSearchDTO.setlHeurDeDepart(heureDepart.getSelectionModel().getSelectedItem());
+        ticketSearchDTO.setDateDepart(dateDepart.getValue());
+//       String myFormattedDate = myDate.format(DateTimeFormatter.ofPattern("MMM-dd-yyyy"));
+        ticketSearchDTO.setNombreDeVoyageurs(nbPersonne);
+        ticketSearchDTO.setTypeDeConfort(typeDeComfort);
+        ticketSearchDTO.setGareDepart(gareDepart.getText());
+        ticketSearchDTO.setGareDarrive(gareDarrive.getText());
         //this function takes us to the next scene
-        switchToResults(event);
+        if(ticketSearchDTO.getGareDepart()!= "" && ticketSearchDTO.getGareDarrive()!= "")
+            switchToResults(event, ticketSearchDTO);
     }
-    public void switchToResults(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/results.fxml"));
+    public void switchToResults(ActionEvent event, TicketSearchDTO ticketSearchDTO) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/results.fxml"));
+        Parent root = loader.load();
+        ResultsController resultsController= loader.getController();
+        resultsController.initiliazeList(ticketSearchDTO);
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setTitle("result");
         scene = new Scene(root);
