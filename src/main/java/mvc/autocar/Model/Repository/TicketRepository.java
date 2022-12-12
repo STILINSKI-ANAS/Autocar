@@ -81,7 +81,7 @@ public class TicketRepository {
             pst = connection.prepareStatement("select COUNT(idAgency) as nbTicket, IdTicket, Destination, Departure, DepartureDate," +
                     " ArrivalDate, PlaceNumber, Prix, TypeOfComfort, IdAdmin, IdPaiment, IdAgency from ticket where Departure=? and Destination=?" +
                     " and DATE(DepartureDate)=? and TypeOfComfort =? and TIME(DepartureDate) >= TIME(?) and " +
-                    "TIME(DepartureDate) <= TIME(?) group by IdAgency HAVING COUNT(idAgency)>=?;");
+                    "TIME(DepartureDate) <= TIME(?) group by DepartureDate, Prix, IdAgency HAVING COUNT(idAgency)>=? ;");
             pst.setString(1, ticketSearchDTO.getGareDepart());
             pst.setString(2, ticketSearchDTO.getGareDarrive());
             pst.setString(3, ticketSearchDTO.getDateDepart().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
