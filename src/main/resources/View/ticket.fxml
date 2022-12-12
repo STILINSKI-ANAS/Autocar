@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="116.0" maxWidth="650.0" onMousePressed="#click" prefHeight="116.0" prefWidth="650.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.TicketController">
+<AnchorPane maxHeight="116.0" maxWidth="650.0" onMousePressed="#click" prefHeight="116.0" prefWidth="650.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-border-radius: 8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.TicketController">
    <children>
       <VBox alignment="BOTTOM_CENTER" maxHeight="116.0" maxWidth="650.0" prefHeight="116.0" prefWidth="650.0" style="-fx-background-color: transparent;">
          <children>

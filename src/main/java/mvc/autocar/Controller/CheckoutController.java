@@ -31,14 +31,9 @@ public class CheckoutController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        File file = new File("/assets/ticket"+ Idticket +".png");
-        System.out.println("/assets/ticket"+ Idticket +".png");
+        File file = new File("C:\\Users\\anasf\\Desktop\\tp oop\\project\\3rd\\src\\main\\resources\\assets\\ticket"+ Idticket +".png");
         Image image = new Image(file.toURI().toString());
-//        QrcodeHolder.setImage(image);
-//        QrcodeHolder.setFitWidth(400);
-//        QrcodeHolder.setPreserveRatio(true);
-//        QrcodeHolder.setSmooth(true);
-//        QrcodeHolder.setCache(true);
+        QrcodeHolder.setImage(image);
     }
 
 
