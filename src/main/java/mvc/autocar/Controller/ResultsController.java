@@ -174,6 +174,7 @@ public class ResultsController implements Initializable {
 
 
     public void switchToCheckout(ActionEvent event) throws IOException{
+        
         CreateQrCode();
         root = FXMLLoader.load(getClass().getResource("/View/checkout.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
