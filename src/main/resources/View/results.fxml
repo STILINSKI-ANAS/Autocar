@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.ResultsController">
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.ResultsController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #EF1837;">
          <children>
@@ -223,7 +223,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <Button fx:id="ConfirmerBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="650.0" styleClass="button5" stylesheets="@../assets/style1.css" text="Confirmer">
+                        <Button fx:id="ConfirmerBtn" mnemonicParsing="false" onAction="#switchToCheckout" prefHeight="40.0" prefWidth="650.0" styleClass="button5" stylesheets="@../assets/style1.css" text="Confirmer">
                            <VBox.margin>
                               <Insets top="32.0" />
                            </VBox.margin></Button>
