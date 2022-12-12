@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mvc.autocar.Controller.CheckoutController">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #EF1837;">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="134.0" prefWidth="1920.0">
+                    <children>
+                        <Pane prefHeight="100.0" prefWidth="250.0">
+                            <HBox.margin>
+                                <Insets left="5.0" top="5.0" />
+                            </HBox.margin>
+                        </Pane>
+                        <HBox alignment="CENTER" maxWidth="420.0" prefHeight="134.0" prefWidth="420.0" styleClass="H-box1" stylesheets="@../assets/style1.css">
+                            <children>
+                                <ImageView fitHeight="108.0" fitWidth="294.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../assets/Logo.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="500.0" />
+                            </HBox.margin>
+                        </HBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" minHeight="700.0" prefHeight="700.0" prefWidth="1920.0" style="-fx-background-color: transparent;">
+                    <children>
+                        <VBox alignment="CENTER" minWidth="650.0" prefHeight="200.0" prefWidth="650.0">
+                            <children>
+                                <VBox alignment="CENTER" maxHeight="550.0" maxWidth="650.0" minHeight="550.0" minWidth="650.0" prefHeight="550.0" prefWidth="650.0" style="-fx-background-color: white; -fx-background-radius: 16;" stylesheets="@../assets/style1.css">
+                                    <children>
+                                              <Label text="Merci pour votre achat">
+                                                  <font>
+                                                      <Font name="Poppins Medium" size="24.0" />
+                                                  </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                              </Label>
+                              <Label text="Voici votre ticket électronique">
+                                 <font>
+                                    <Font name="Poppins Medium" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="Scannez-Le!!">
+                                 <font>
+                                    <Font name="Poppins Medium" size="24.0" />
+                                 </font>
+                              </Label>
+                                        <Line endX="100.0" startX="-400.0" strokeWidth="0.5">
+                                            <VBox.margin>
+                                                <Insets bottom="61.0" />
+                                            </VBox.margin></Line>
+                              <ImageView fx:id="QrcodeHolder" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/ticket216.png" />
+                                 </image></ImageView>
+                                        <Line endX="100.0" startX="-400.0" strokeWidth="0.5">
+                                            <VBox.margin>
+                                                <Insets top="61.0" />
+                                            </VBox.margin></Line>
+                                    </children>
+                                </VBox>
+                                <Button fx:id="end" mnemonicParsing="false" onAction="#switchToend" prefHeight="40.0" prefWidth="650.0" styleClass="button5" stylesheets="@../assets/style1.css" text="Confirmer">
+                                    <VBox.margin>
+                                        <Insets top="32.0" />
+                                    </VBox.margin></Button>
+                            </children></VBox>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="96.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
