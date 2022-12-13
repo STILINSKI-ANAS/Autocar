@@ -22,6 +22,7 @@ package mvc.autocar.Controller;
         import javafx.scene.text.Text;
         import javafx.stage.Stage;
         import mvc.autocar.DTO.TicketSearchDTO;
+        import mvc.autocar.Model.Repository.TicketRepository;
 
 
 public class MenuController implements Initializable {
@@ -68,7 +69,7 @@ public class MenuController implements Initializable {
     private Stage stage;
     private Scene scene;
 
-
+    private TicketRepository ticketRepository=new TicketRepository();
 
     @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -143,16 +144,25 @@ public class MenuController implements Initializable {
             switchToResults(event, ticketSearchDTO);
     }
     public void switchToResults(ActionEvent event, TicketSearchDTO ticketSearchDTO) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/results.fxml"));
-        Parent root = loader.load();
-        ResultsController resultsController= loader.getController();
-        resultsController.initiliazeList(ticketSearchDTO);
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setTitle("result");
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.setFullScreen(true);
-        stage.show();
+        var tickets=ticketRepository.getTickets(ticketSearchDTO);
+        if(tickets.size() > 0 ){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/results.fxml"));
+            Parent root = loader.load();
+            ResultsController resultsController= loader.getController();
+            resultsController.initiliazeList(ticketSearchDTO, tickets);
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setTitle("result");
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setFullScreen(true);
+            stage.show();
+        }
+        else{
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText("Billets non disponibles");
+            alert.showAndWait();
+        }
     }
 }
 

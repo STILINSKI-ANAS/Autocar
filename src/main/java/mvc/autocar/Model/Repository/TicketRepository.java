@@ -37,7 +37,6 @@ public class TicketRepository {
                         resultSet.getInt("IdPaiment"),
                         resultSet.getInt("IdAgency")
                 ));
-
             }
             connection.close();
         } catch (SQLException throwables) {
@@ -79,7 +78,7 @@ public class TicketRepository {
                     break;
             }
             pst = connection.prepareStatement("select COUNT(idAgency) as nbTicket, IdTicket, Destination, Departure, DepartureDate," +
-                    " ArrivalDate, PlaceNumber, Prix, TypeOfComfort, IdAdmin, IdPaiment, IdAgency from ticket where Departure=? and Destination=?" +
+                    " ArrivalDate, PlaceNumber, Prix, TypeOfComfort, IdAdmin, IdPaiment, IdAgency from ticket where isPurchesed=0 and Departure=? and Destination=?" +
                     " and DATE(DepartureDate)=? and TypeOfComfort =? and TIME(DepartureDate) >= TIME(?) and " +
                     "TIME(DepartureDate) <= TIME(?) group by DepartureDate, Prix, IdAgency HAVING COUNT(idAgency)>=? ;");
             pst.setString(1, ticketSearchDTO.getGareDepart());
@@ -110,5 +109,55 @@ public class TicketRepository {
             throwables.printStackTrace();
         }
         return ticket_list;
+    }
+
+    public ObservableList<Object> setTicketPurchesed(Ticket ticket, int nombreTicket) {
+        ConnectionClass connectionClass = new ConnectionClass();
+        Connection connection = connectionClass.getConnection();
+        PreparedStatement pst;
+        ObservableList<Object> tickets_ID = FXCollections.observableArrayList();
+        try {
+            if(nombreTicket>1){
+                pst = connection.prepareStatement("select IdTicket from ticket" +
+                        " where isPurchesed=0 and Departure=? and Destination=?" +
+                        " and Date(DepartureDate)=? and Time(DepartureDate)=? and TypeOfComfort =? and " +
+                        " IdAgency=? and Prix=?");
+                pst.setString(1, ticket.getDepart());
+                pst.setString(2, ticket.getDestination());
+                pst.setDate(3, java.sql.Date.valueOf(ticket.getDateDepart().toLocalDate()));
+                pst.setTime(4, java.sql.Time.valueOf(ticket.getDateDepart().toLocalTime()));
+                pst.setString(5, ticket.getTypeOfComfort());
+                pst.setInt(6, ticket.getidAgence());
+                pst.setDouble(7, ticket.getPrix());
+                ResultSet resultSet = pst.executeQuery();
+                while (resultSet.next()) {
+                    tickets_ID.add(resultSet.getInt("IdTicket"));
+                }
+                connection.close();
+                connection = connectionClass.getConnection();
+                pst = connection.prepareStatement("UPDATE ticket" +
+                        " SET isPurchesed = 1" +
+                        " WHERE IdTicket = ?;");
+                for (Object id: tickets_ID
+                     ) {
+                    pst.setInt(1, (int)id);
+                    pst.executeUpdate();
+                }
+            }
+            else{
+                tickets_ID.add(ticket.getIdTicket());
+                pst = connection.prepareStatement("UPDATE ticket" +
+                        " SET isPurchesed = 1" +
+                        " WHERE IdTicket = ?;");
+                pst.setInt(1, ticket.getIdTicket());
+                pst.executeUpdate();
+            }
+
+            connection.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return tickets_ID;
     }
 }

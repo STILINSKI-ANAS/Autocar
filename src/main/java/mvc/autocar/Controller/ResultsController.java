@@ -78,6 +78,7 @@ public class ResultsController implements Initializable {
     private TicketSearchDTO ticketSearchDTO=new TicketSearchDTO();
 
     private void setChosenTicket(Ticket ticket) {
+        toCheckoutTicket = ticket;
         PrixUnitaireLabel.setText(ticket.getPrix() + "0 "+ MainApplication.CURRENCY);
         SubTotalLabel.setText( ticket.getPrix()+"0 "+MainApplication.CURRENCY);
         FraisLabel.setText(10+"0 "+MainApplication.CURRENCY );
@@ -106,16 +107,14 @@ public class ResultsController implements Initializable {
     Ticket toCheckoutTicket;
     public static int Idticket;
 
-    public void initiliazeList(TicketSearchDTO ticketSearchDTO){
+    public void initiliazeList(TicketSearchDTO ticketSearchDTO, List<Ticket> tickets){
         this.ticketSearchDTO= ticketSearchDTO;
-        var tickets=ticketRepository.getTickets(ticketSearchDTO);
         Tickets.addAll(tickets);
         if (Tickets.size() > 0) {
             setChosenTicket(Tickets.get(0));
             myListener = new MyListener() {
                 @Override
                 public void onClickListener(Ticket ticket) {
-                    toCheckoutTicket = ticket;
                     setChosenTicket(ticket);
                 }
             };
@@ -153,10 +152,15 @@ public class ResultsController implements Initializable {
         }
     }
     public void CreateQrCode(){
-        Idticket = toCheckoutTicket.getIdTicket();
+        //Idticket = toCheckoutTicket.getIdTicket();
+        String qrCodeData="";
+        var tickets_ID=ticketRepository.setTicketPurchesed(toCheckoutTicket, ticketSearchDTO.getNombreDeVoyageurs());
+        for (Object id: tickets_ID
+             ) {
+            qrCodeData+= id + "&";
+        }
         try {
-            String qrCodeData = "" + Idticket;
-            String filePath = "C:\\Users\\anasf\\Desktop\\tp oop\\project\\3rd\\src\\main\\resources\\assets\\ticket"+ Idticket +".png";
+            String filePath = "C:\\Users\\Yassine\\eclipse-workspace\\AutocarProject\\src\\main\\resources\\assets\\ticket"+ Idticket +".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
@@ -174,7 +178,6 @@ public class ResultsController implements Initializable {
 
 
     public void switchToCheckout(ActionEvent event) throws IOException{
-        
         CreateQrCode();
         root = FXMLLoader.load(getClass().getResource("/View/checkout.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
