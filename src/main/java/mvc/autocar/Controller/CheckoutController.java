@@ -19,7 +19,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static mvc.autocar.Controller.ResultsController.Idticket;
+import static mvc.autocar.Controller.ResultsController.*;
 
 public class CheckoutController implements Initializable {
 
@@ -31,7 +31,7 @@ public class CheckoutController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        File file = new File("C:\\Users\\Yassine\\eclipse-workspace\\AutocarProject\\src\\main\\resources\\assets\\ticket"+ Idticket +".png");
+        File file = new File("C:\\Users\\anasf\\Desktop\\tp oop\\project\\4th\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png");
         Image image = new Image(file.toURI().toString());
         QrcodeHolder.setImage(image);
     }

@@ -105,7 +105,7 @@ public class ResultsController implements Initializable {
         stage.show();
     }
     Ticket toCheckoutTicket;
-    public static int Idticket;
+    public static String qrCodeData="";
 
     public void initiliazeList(TicketSearchDTO ticketSearchDTO, List<Ticket> tickets){
         this.ticketSearchDTO= ticketSearchDTO;
@@ -153,14 +153,13 @@ public class ResultsController implements Initializable {
     }
     public void CreateQrCode(){
         //Idticket = toCheckoutTicket.getIdTicket();
-        String qrCodeData="";
         var tickets_ID=ticketRepository.setTicketPurchesed(toCheckoutTicket, ticketSearchDTO.getNombreDeVoyageurs());
         for (Object id: tickets_ID
              ) {
             qrCodeData+= id + "&";
         }
         try {
-            String filePath = "C:\\Users\\Yassine\\eclipse-workspace\\AutocarProject\\src\\main\\resources\\assets\\ticket"+ Idticket +".png";
+            String filePath = "C:\\Users\\anasf\\Desktop\\tp oop\\project\\4th\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
