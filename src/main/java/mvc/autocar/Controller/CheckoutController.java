@@ -31,7 +31,7 @@ public class CheckoutController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        File file = new File("C:\\Users\\anasf\\Desktop\\tp oop\\project\\4th\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png");
+        File file = new File("C:\\Users\\Yassine\\eclipse-workspace\\Autocar\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png");
         Image image = new Image(file.toURI().toString());
         QrcodeHolder.setImage(image);
     }

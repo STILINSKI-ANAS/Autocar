@@ -6,10 +6,8 @@ import mvc.autocar.DTO.TicketSearchDTO;
 import mvc.autocar.Model.Repository.connectivity.ConnectionClass;
 import mvc.autocar.Model.Ticket;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -121,7 +119,7 @@ public class TicketRepository {
                 pst = connection.prepareStatement("select IdTicket from ticket" +
                         " where isPurchesed=0 and Departure=? and Destination=?" +
                         " and Date(DepartureDate)=? and Time(DepartureDate)=? and TypeOfComfort =? and " +
-                        " IdAgency=? and Prix=?");
+                        " IdAgency=? and Prix=? LIMIT ?");
                 pst.setString(1, ticket.getDepart());
                 pst.setString(2, ticket.getDestination());
                 pst.setDate(3, java.sql.Date.valueOf(ticket.getDateDepart().toLocalDate()));
@@ -129,15 +127,29 @@ public class TicketRepository {
                 pst.setString(5, ticket.getTypeOfComfort());
                 pst.setInt(6, ticket.getidAgence());
                 pst.setDouble(7, ticket.getPrix());
+                pst.setInt(8, nombreTicket);
                 ResultSet resultSet = pst.executeQuery();
                 while (resultSet.next()) {
                     tickets_ID.add(resultSet.getInt("IdTicket"));
                 }
-                connection.close();
-                connection = connectionClass.getConnection();
+
+                PreparedStatement pstPayment;
+                pstPayment = connection.prepareStatement("insert into" +
+                        " paiment(PaymentDate)" +
+                        " Values(?);", Statement.RETURN_GENERATED_KEYS);
+                java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+                pstPayment.setTimestamp(1, date);
+                pstPayment.executeUpdate();
+                // Get the generated id of paiment row
+                ResultSet rs = pstPayment.getGeneratedKeys();
+                Integer paimentId = null;
+                if (rs.next()) {
+                    paimentId = rs.getInt(1);
+                }
                 pst = connection.prepareStatement("UPDATE ticket" +
-                        " SET isPurchesed = 1" +
+                        " SET isPurchesed = 1,  IdPaiment = " + paimentId +
                         " WHERE IdTicket = ?;");
+
                 for (Object id: tickets_ID
                      ) {
                     pst.setInt(1, (int)id);
@@ -146,8 +158,21 @@ public class TicketRepository {
             }
             else{
                 tickets_ID.add(ticket.getIdTicket());
+                PreparedStatement pstPayment;
+                pstPayment = connection.prepareStatement("insert into" +
+                        " paiment(PaymentDate)" +
+                        " Values(?);", Statement.RETURN_GENERATED_KEYS);
+                java.sql.Timestamp date = new java.sql.Timestamp(new java.util.Date().getTime());
+                pstPayment.setTimestamp(1, date);
+                pstPayment.executeUpdate();
+                // Get the generated id of paiment row
+                ResultSet rs = pstPayment.getGeneratedKeys();
+                Integer paimentId = null;
+                if (rs.next()) {
+                    paimentId = rs.getInt(1);
+                }
                 pst = connection.prepareStatement("UPDATE ticket" +
-                        " SET isPurchesed = 1" +
+                        " SET isPurchesed = 1, IdPaiment = " + paimentId +
                         " WHERE IdTicket = ?;");
                 pst.setInt(1, ticket.getIdTicket());
                 pst.executeUpdate();

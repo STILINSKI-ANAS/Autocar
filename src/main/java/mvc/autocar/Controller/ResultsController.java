@@ -139,7 +139,6 @@ public class ResultsController implements Initializable {
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
-//
 //                //set grid height
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
@@ -152,14 +151,15 @@ public class ResultsController implements Initializable {
         }
     }
     public void CreateQrCode(){
-        //Idticket = toCheckoutTicket.getIdTicket();
         var tickets_ID=ticketRepository.setTicketPurchesed(toCheckoutTicket, ticketSearchDTO.getNombreDeVoyageurs());
+        qrCodeData = "";
         for (Object id: tickets_ID
              ) {
             qrCodeData+= id + "&";
         }
+        qrCodeData = qrCodeData.substring(0, qrCodeData.length() - 1);
         try {
-            String filePath = "C:\\Users\\anasf\\Desktop\\tp oop\\project\\4th\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png";
+            String filePath = "C:\\Users\\Yassine\\eclipse-workspace\\Autocar\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
