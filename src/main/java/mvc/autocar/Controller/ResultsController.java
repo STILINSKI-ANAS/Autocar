@@ -26,17 +26,16 @@ import mvc.autocar.MyListener;
 import mvc.autocar.Controller.*;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.MultiFormatWriter;
@@ -158,23 +157,48 @@ public class ResultsController implements Initializable {
             qrCodeData+= id + "&";
         }
         qrCodeData = qrCodeData.substring(0, qrCodeData.length() - 1);
+        String hashedData = getHashData(qrCodeData);
         try {
             String filePath = "C:\\Users\\Yassine\\eclipse-workspace\\Autocar\\src\\main\\resources\\assets\\ticket"+ qrCodeData +".png";
             String charset = "UTF-8"; // or "ISO-8859-1"
             Map < EncodeHintType, ErrorCorrectionLevel > hintMap = new HashMap < EncodeHintType, ErrorCorrectionLevel > ();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
             BitMatrix matrix = new MultiFormatWriter().encode(
-                    new String(qrCodeData.getBytes(charset), charset),
+                    new String(hashedData.getBytes(charset), charset),
                     BarcodeFormat.QR_CODE, 300, 300, hintMap);
             MatrixToImageWriter.writeToFile(matrix, filePath.substring(filePath
                     .lastIndexOf('.') + 1), new File(filePath));
-            System.out.println("QR Code image created successfully!");
         } catch (Exception e) {
             System.err.println(e);
         }
     }
 
+    private String getHashData(String data) {
+        try {
 
+            // Static getInstance method is called with hashing MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
+
+            // digest() method is called to calculate message digest
+            // of an input digest() return array of byte
+            byte[] messageDigest = md.digest(data.getBytes());
+
+            // Convert byte array into signum representation
+            StringBuffer hexString = new StringBuffer();
+            for (int i = 0; i < messageDigest.length; i++) {
+                String hex = Integer.toHexString(0xff & messageDigest[i]);
+                if (hex.length() == 1)
+                    hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        }
+
+        // For specifying wrong message digest algorithms
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void switchToCheckout(ActionEvent event) throws IOException{
         CreateQrCode();
