@@ -80,7 +80,7 @@ public class ResultsController implements Initializable {
         toCheckoutTicket = ticket;
         PrixUnitaireLabel.setText(ticket.getPrix() + "0 "+ MainApplication.CURRENCY);
         SubTotalLabel.setText( ticket.getPrix()+"0 "+MainApplication.CURRENCY);
-        FraisLabel.setText(10+"0 "+MainApplication.CURRENCY );
+        FraisLabel.setText(10+" "+MainApplication.CURRENCY );
         NombreTicketsLabel.setText(ticketSearchDTO.getNombreDeVoyageurs() + "" );
         TotalLabel.setText( ( (ticket.getPrix() * ticketSearchDTO.getNombreDeVoyageurs()) + 10 ) +"0 "+ MainApplication.CURRENCY  );
     }
