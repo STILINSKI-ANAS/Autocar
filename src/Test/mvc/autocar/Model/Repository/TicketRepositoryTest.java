@@ -18,7 +18,7 @@ class TicketRepositoryTest {
     static TicketSearchDTO ticketSearchDTO;
     @BeforeAll
     static void setUpBeforeClass() throws Exception {
-        ticketSearchDTO = new TicketSearchDTO("Agadir", "rabat", LocalDate.of(2023, 1, 5), 1, "Standard", "Matinee");
+        ticketSearchDTO = new TicketSearchDTO("Agadir", "rabat", LocalDate.of(2023, 1, 5), 2, "Standard", "Matinee");
         ConnectionClass connectionClass = new ConnectionClass();
         Connection connection = connectionClass.getConnection();
         PreparedStatement pst;
@@ -30,20 +30,31 @@ class TicketRepositoryTest {
         connection.close();
     }
 
+    @Test
+    void getTicketsTest() {
+        //Arrange
+        ticketRepository = new TicketRepository();
+
+        //Act
+        ObservableList<Ticket> ticketlist = ticketRepository.getTickets(ticketSearchDTO);
+
+        //Assert
+        assertEquals("rabat",ticketlist.get(0).getDestination());
+        assertEquals("Agadir",ticketlist.get(0).getDepart());
+    }
 
     @Test
     void setTicketPurchesedTest() {
+        //Arrange
         ticketRepository = new TicketRepository();
+
+        //Act
         ObservableList<Ticket> ticketlist = ticketRepository.getTickets(ticketSearchDTO);
         Ticket FirstTicket = ticketlist.get(0);
         ObservableList<Object> ticketIdList = ticketRepository.setTicketPurchesed(FirstTicket, ticketSearchDTO.getNombreDeVoyageurs());
+
+        //Assert
         assertTrue(ticketIdList.size() == ticketSearchDTO.getNombreDeVoyageurs());
     }
 
-    @Test
-    void getTicketsTest() {
-        ticketRepository = new TicketRepository();
-        ObservableList<Ticket> ticketlist = ticketRepository.getTickets(ticketSearchDTO);
-        assertEquals("rabat",ticketlist.get(0).getDestination());
-    }
 }
